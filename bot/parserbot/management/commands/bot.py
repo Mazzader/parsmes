@@ -11,7 +11,10 @@ from parserbot.models import Profile
 
 
 def create_db(update: Update, context: CallbackContext):
-    user = update.message.from_user.first_name + ' ' + update.message.from_user.last_name
+    if update.message.from_user.first_name != None and update.message.from_user.last_name != None:
+        user = update.message.from_user.first_name + ' ' + update.message.from_user.last_name
+    else:
+        user = update.message.from_user.username
     external_id = update.message.from_user.id
 
 
