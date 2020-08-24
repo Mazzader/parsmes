@@ -7,7 +7,8 @@ SECRET_KEY = 'sadbdabsdabjdb!!!cnsccds&&dasdasbcb!!&=5kh9sf!ou7k8doew&'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '89.223.126.211'
+    '127.0.0.1',
+    '89.223.126.211',
 ]
 
 DATABASES = {
