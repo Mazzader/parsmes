@@ -16,11 +16,8 @@ def create_db(update: Update, context: CallbackContext):
     else:
         user = update.message.from_user.username
     external_id = update.message.from_user.id
-
-
-
     text = update.message.text
-    hw_1, hw_2, hw_3 = '#марафон_дз_1', '#марафон_дз_2', '#марафон_дз_3'
+    hw_1, hw_2, hw_3, hw_4 = '#марафон_дз_1', '#марафон_дз_2', '#марафон_дз_3', 'марафон_дз_4'
     if text.find(hw_1) != -1:
         Profile.objects.get_or_create(
             external_id=external_id,
@@ -29,6 +26,7 @@ def create_db(update: Update, context: CallbackContext):
                 'score_homework_1': 1,
                 'score_homework_2': 0,
                 'score_homework_3': 0,
+                'score_homework_4': 0,
                 'total_score': 0,
             }
         )
@@ -40,6 +38,7 @@ def create_db(update: Update, context: CallbackContext):
                 'score_homework_1': 1,
                 'score_homework_2': 1,
                 'score_homework_3': 0,
+                'score_homework_4': 0,
                 'total_score': 0,
             }
         )
@@ -51,6 +50,19 @@ def create_db(update: Update, context: CallbackContext):
                 'score_homework_1': 1,
                 'score_homework_2': 1,
                 'score_homework_3': 1,
+                'score_homework_4': 0,
+                'total_score': 0,
+            }
+        )
+    elif text.find(hw_4) != -1:
+        Profile.objects.get_or_create(
+            external_id=external_id,
+            defaults={
+                'name': user,
+                'score_homework_1': 1,
+                'score_homework_2': 1,
+                'score_homework_3': 1,
+                'score_homework_4': 1,
                 'total_score': 0,
             }
         )

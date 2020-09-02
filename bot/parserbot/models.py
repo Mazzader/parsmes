@@ -21,12 +21,16 @@ class Profile(models.Model):
     score_homework_3 = models.PositiveIntegerField(
         verbose_name='homework_3',
     )
+    score_homework_4 = models.PositiveIntegerField(
+        verbose_name='homework_4',
+        default=0,
+    )
     total_score = models.PositiveIntegerField(
         verbose_name='total_score'
     )
 
     def save(self, *args, **kwargs):
-        self.total_score = self.score_homework_1 + self.score_homework_2 + self.score_homework_3
+        self.total_score = self.score_homework_1 + self.score_homework_2 + self.score_homework_3 + self.score_homework_4
         super(Profile, self).save(*args, **kwargs)
 
     class Meta:
